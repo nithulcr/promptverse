@@ -1,11 +1,17 @@
-"use client";
 import "@/app/globals.css"
+import type { Metadata } from "next";
 import { Poppins, Manrope } from "next/font/google";
-import Navbar from "@/components/Navbar";
+import Type from "@/components/Type";
 import Footer from "@/components/Footer";
-import useLenis from "@/hooks/useLenis";
-import CustomCursor from "@/components/CustomCursor"; 
-
+export const metadata: Metadata = {
+  title: 'Promptverse - AI Prompt Marketplace',
+  description: 'promptverse is a marketplace for AI prompts. Buy and sell AI prompts for various AI models.',
+   icons: {
+    icon: "/images/favicon.png",
+    shortcut: "/images/favicon.png",
+    apple: "/images/favicon.png",
+  },
+};
 const poppins = Poppins({
   subsets: ["latin"],
   weight: ["300", "400", "500", "600", "700"],
@@ -19,14 +25,12 @@ const manrope = Manrope({
 });
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
-  useLenis();
   return (
     <html lang="en">
       <body className={`overflow-x-hidden ${poppins.variable} ${manrope.variable} bg-black text-white`}>
-        <CustomCursor /> 
-        <Navbar/>
+        <Type />
         {children}
-       <Footer/>
+        <Footer />
       </body>
     </html>
   );
